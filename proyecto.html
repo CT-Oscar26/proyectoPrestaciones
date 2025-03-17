@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cálculo de Prestaciones</title>
+  <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+
+  <!-- Encabezado con imagen -->
+  <header>
+    <img src="https://calculo.mt.gob.do/images/head-1.png" alt="Banner" class="banner">
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+    
+    <!-- Sección del formulario -->
+    <section class="seccion">
+      <h2>Datos del solicitante</h2>
+      <div class="forma-grupo">
+        <label for="cedula">Documento Identidad</label>
+        <input id="cedula" type="text" placeholder="Ej: 001-0000000-1">
+      </div>
+
+      <div class="forma-grupo">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="Ej: Juan Pérez">
+      </div>
+
+      <div class="forma-grupo">
+        <label for="empresa">Nombre de la Empresa</label>
+        <input id="empresa" type="text" placeholder="Ej: MiEmpresa SRL">
+      </div>
+
+      <h2>Selección de fechas</h2>
+      <div class="forma-grupo">
+        <label for="fecha_ingreso">Fecha de ingreso</label>
+        <input id="fecha_ingreso" type="date">
+      </div>
+
+      <div class="forma-grupo">
+        <label for="fecha_salida">Fecha de salida</label>
+        <input id="fecha_salida" type="date">
+      </div>
+
+      <h2>Seleccione el período</h2>
+      <div class="radio-grupo">
+        <label><input type="radio" name="periodo" checked> Mensual</label>
+        <label><input type="radio" name="periodo"> Quincenal</label>
+        <label><input type="radio" name="periodo"> Semanal</label>
+        <label><input type="radio" name="periodo"> Diario</label>
+      </div>
+
+      <h2>Seleccione el tipo de cálculo</h2>
+      <div class="radio-grupo">
+        <label><input type="radio" name="calculo" checked> Ordinario</label>
+        <label><input type="radio" name="calculo"> Intermitente</label>
+      </div>
+
+      <p id="azul">Jornada ordinaria es la ejecutada por trabajadores dentro de un período que no exceda de ocho (8) horas al día ni de cuarenta y cuatro (44) a la semana.</p>
+
+      <p class="referencia">Referencias: <a href="https://mt.gob.do/images/docs/biblioteca/codigo_de_trabajo.pdf#page=62">Art. 147 del Código de Trabajo</a></p>
+    </section>
+
+    <!-- Sección de salarios -->
+    <section class="seccion-salarios">
+      <table class="tabla-salarios" id="tabla-salarios">
+        <thead>
+          <tr class="estilo-tabla">
+            <th>#</th>
+            <th>Salarios</th>
+            <th>Comisiones</th>
+            <th>Totales  </th>
+            <th>Completar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas generadas por JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <!-- Sección de Resumen Final -->
+
+    <div class="seccion-resumen">
+        <div id="estilo-resumen">Sumatoria de los salarios</div>
+        <div id="estilo-resumen">Salario promedio mensual</div>
+        <div id="estilo-resumen">Salario promedio diario</div>
+        
+        <div id="final-total-salarios">RD$0.00</div>
+        <div id="final-promedio-mensual">RD$0.00</div>
+        <div id="final-promedio-diario">RD$0.00</div>
+    </div>
+
+    <div class="seccion-preguntas">
+        <div class="preguntas">
+            <span>¿Ha sido usted pre-avisado?</span>
+            <select id="preAvisado">
+                <option value="no">NO</option>
+                <option value="si">SI</option>
+            </select>
+            <span>RD$0.00</span>
+        </div>
+
+        <div class="preguntas">
+            <span>¿Desea incluir cesantía?</span>
+            <select id="cesantia">
+              <option value="no">NO</option>
+              <option value="si">SI</option>
+          </select>
+            <div>
+                <div>Art. 80 C.T. antes 1992: <span id="cesantiaAntes">RD$0.00</span></div>
+                <div>Art. 80 C.T. después 1992: <span id="cesantiaDespues">RD$0.00</span></div>
+            </div>
+        </div>
+
+        <div class="preguntas">
+            <span>¿Ha tomado las vacaciones correspondientes al último año?</span>
+            <select id="vacaciones">
+              <option value="no">NO</option>
+              <option value="si">SI</option>
+          </select>
+            <span id="salarioVacaciones">RD$0.00</span>
+        </div>
+
+        <div class="preguntas">
+            <span>Sub-Total:</span>
+            <span id="subtotal">RD$0.00</span>
+        </div>
+
+        <div class="preguntas">
+            <span>¿Incluir salario de navidad?</span>
+            <select id="navidad">
+              <option value="no">NO</option>
+              <option value="si">SI</option>
+          </select>
+            <span id="salarioNavidad">RD$0.00</span>
+        </div>
+        <div class="preguntas">
+          <span>Tiempo laborado:</span>
+          <span id="tiempoLaborado"></span>
+      </div>
+        <div class="calculoTotal">
+            <span>Total a Recibir:</span>
+            <span id="totalRecibir">RD$0.00</span>
+        </div>
+
+        <div class="botones">
+          <button onclick="calcularTotal()">CALCULAR</button>
+          <button>IMPRIMIR</button>
+          <button>AYUDA</button>
+          <button onclick="limpiarTodo()">LIMPIAR</button>
+      </div>
+    </div>
+
+  <script src="proyecto.js"></script>
+</body>
+</html>
